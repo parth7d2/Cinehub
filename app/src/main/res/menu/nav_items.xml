@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bNhome"
+        android:title="@string/homeFragment"
+        android:icon="@drawable/house_fill" />
+
+    <item android:id="@+id/bNdownloads"
+        android:title="@string/downloadFragment"
+        android:icon="@drawable/tray_and_arrow_down_fill"/>
+
+    <item android:id="@+id/bNsaved"
+        android:title="@string/saveFragment"
+        android:icon="@drawable/bookmark"/>
+
+    <item android:id="@+id/bNaccount"
+        android:title="@string/accountFragment"
+        android:icon="@drawable/person_fill"/>
+
+</menu>
