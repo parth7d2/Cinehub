@@ -11,8 +11,24 @@
     <string name="company_logo">Company Logo</string>
 
 
-    <string name="trending_heading">Recently Added</string>
-    <string name="treading_movies_poster">Hotel Transylvania 3: Summer Vacation</string>
-    <string name="treading_movies_title">Hotel Transylvania 3: Summer Vacation</string>
-    <string name="treading_movies_subtitle">Animation, Comedy, Family</string>
+
+    <!-- ************************ Row Heading ************************ -->
+
+    <string name="trending_heading">Trending Now</string>
+    <string name="recently_heading">Recently Saved</string>
+    <string name="continue_heading">Continue Watching …</string>
+    <string name="english_heading">Popular English Movies</string>
+    <string name="hindi_heading">Popular Hindi Movies</string>
+
+
+    <!-- ************************ Temporary Text ************************ -->
+
+    <string name="movies_poster">Hotel Transylvania 3: Summer Vacation</string>
+    <string name="movies_title">Hotel Transylvania 3: Summer Vacation</string>
+    <string name="movies_subtitle">Animation, Comedy, Family</string>
+
+
+
+
+
 </resources>

@@ -11,15 +11,19 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+
+
+
+    <!-- ************************ Customize your theme here ************************ -->
 
     </style>
     <style name="Style_TextView">
         <item name="fontFamily">@font/sfpro_text_fonts</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">10sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- ************* Customize my app theme here *************  -->
     <style name="MyCinehubTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>

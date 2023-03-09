@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bnView"
+        android:id="@+id/bNView"
         android:layout_width="match_parent"
         android:layout_height="63dp"
         app:itemIconSize="36dp"

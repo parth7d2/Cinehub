@@ -13,16 +13,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    BottomNavigationView bnView;
+    BottomNavigationView bNView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bnView = findViewById(R.id.bnView);
+        bNView = findViewById(R.id.bNView);
 
-        bnView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        bNView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        bnView.setSelectedItemId(R.id.bNhome);
+        bNView.setSelectedItemId(R.id.bNhome);
     }
 
     public void loadFrag(Fragment fragment, boolean val) {

@@ -1,10 +1,10 @@
 package com.example.cinehub;
 
-public class TrandingModel {
+public class PosterModel {
     int img;
     String title, subtitle;
 
-    public TrandingModel(int img, String title, String subtitle){
+    public PosterModel(int img, String title, String subtitle){
         this.img=img;
         this.title=title;
         this.subtitle=subtitle;
