@@ -10,6 +10,10 @@
 
     <string name="company_logo">Company Logo</string>
 
+    <string name="search_here">Search Movies, Genres, Actors,…</string>
+
+    <string name="see_all">See All</string>
+
 
 
     <!-- ************************ Row Heading ************************ -->

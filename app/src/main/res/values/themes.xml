@@ -23,6 +23,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
     <!-- ************* Customize my app theme here *************  -->
     <style name="MyCinehubTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->

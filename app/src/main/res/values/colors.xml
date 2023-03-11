@@ -13,5 +13,8 @@
     <color name="green">#34C759</color>
     <color name="gray">#999999</color>
     <color name="graybg">#F0F9F9F9</color>
+    <color name="searchbg">#1F767680</color>
+    <color name="iconcolor">#993C3C43</color>
+    <color name="item_ripple_color">#0A007AFF</color>
 
 </resources>
