@@ -1,6 +1,7 @@
 package com.example.cinehub;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,13 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
         holder.txtRecently_title.setText(recentlyModelArrayList.get(position).title);
         holder.txtRecently_subTitle.setText(recentlyModelArrayList.get(position).subtitle);
 
+        holder.vv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(context, MovieActivity.class));
+            }
+        });
+
     }
 
     @Override
@@ -42,9 +50,11 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
         return recentlyModelArrayList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder{
         ImageView imgRecently_poster;
         TextView txtRecently_title, txtRecently_subTitle;
+
+        View vv;
 
         public ViewHolder (View itemView){
             super(itemView);
@@ -52,6 +62,7 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
             imgRecently_poster = itemView.findViewById(R.id.imgRecently_poster);
             txtRecently_title = itemView.findViewById(R.id.txtRecently_title);
             txtRecently_subTitle = itemView.findViewById(R.id.txtRecently_subTitle);
+            vv = itemView;
         }
     }
 }

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".HomeFragment">
+    tools:context=".HomeFragment"
+    android:id="@+id/home_Fragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -36,7 +37,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/app_name"
                     android:textColor="@color/black"
-                    android:textSize="26sp" />
+                    android:textSize="28sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -74,7 +75,7 @@
                 android:autofillHints="name" />
 
             <LinearLayout
-                android:id="@+id/txtTranding_heading"
+                android:id="@+id/llTranding_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/search_HomeView"
@@ -91,7 +92,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/trending_heading"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="19sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -126,11 +127,11 @@
                 android:id="@+id/trending_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtTranding_heading"
+                android:layout_below="@+id/llTranding_heading"
                 android:layout_marginStart="7dp" />
 
             <LinearLayout
-                android:id="@+id/txtRecently_heading"
+                android:id="@+id/llRecently_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/trending_recyclerView"
@@ -147,7 +148,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/recently_heading"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="19sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -182,11 +183,11 @@
                 android:id="@+id/recently_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtRecently_heading"
+                android:layout_below="@+id/llRecently_heading"
                 android:layout_marginStart="7dp" />
 
             <LinearLayout
-                android:id="@+id/txtContinue_heading"
+                android:id="@+id/llContinue_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/recently_recyclerView"
@@ -203,7 +204,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/continue_heading"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="19sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -238,11 +239,11 @@
                 android:id="@+id/continue_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtContinue_heading"
+                android:layout_below="@+id/llContinue_heading"
                 android:layout_marginStart="7dp" />
 
             <LinearLayout
-                android:id="@+id/txtEnglish_heading"
+                android:id="@+id/llEnglish_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/continue_recyclerView"
@@ -259,7 +260,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/english_heading"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="19sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -294,11 +295,11 @@
                 android:id="@+id/english_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtEnglish_heading"
+                android:layout_below="@+id/llEnglish_heading"
                 android:layout_marginStart="7dp" />
 
             <LinearLayout
-                android:id="@+id/txtHindi_heading"
+                android:id="@+id/llHindi_heading"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/english_recyclerView"
@@ -315,7 +316,7 @@
                     android:fontFamily="@font/sfpro_display_bold"
                     android:text="@string/hindi_heading"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="19sp" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -350,7 +351,7 @@
                 android:id="@+id/hindi_recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/txtHindi_heading"
+                android:layout_below="@+id/llHindi_heading"
                 android:layout_marginStart="7dp" />
 
         </RelativeLayout>

@@ -14,6 +14,7 @@
 
     <string name="see_all">See All</string>
 
+    <string name="back">Back</string>
 
 
     <!-- ************************ Row Heading ************************ -->
@@ -30,7 +31,7 @@
     <string name="movies_poster">Hotel Transylvania 3: Summer Vacation</string>
     <string name="movies_title">Hotel Transylvania 3: Summer Vacation</string>
     <string name="movies_subtitle">Animation, Comedy, Family</string>
-
+    <string name="movies_description">Description here…</string>
 
 
 

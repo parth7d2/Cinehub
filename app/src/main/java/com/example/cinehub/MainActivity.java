@@ -43,13 +43,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadFrag(Fragment fragment, boolean val) {
+        int id = fragment.getId();
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         if (val) {
             ft.add(R.id.framContainer, fragment);
+            fm.popBackStack(String.valueOf(id), FragmentManager.POP_BACK_STACK_INCLUSIVE);
             ft.commit();
         } else {
             ft.replace(R.id.framContainer, fragment);
+            ft.addToBackStack(String.valueOf(id));
             ft.commit();
         }
 

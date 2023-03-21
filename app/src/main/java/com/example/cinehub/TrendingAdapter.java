@@ -1,6 +1,7 @@
 package com.example.cinehub;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,12 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
         holder.imgTrending_poster.setImageResource(trendingModelArrayList.get(position).img);
         holder.txtTrending_title.setText(trendingModelArrayList.get(position).title);
         holder.txtTrending_subTitle.setText(trendingModelArrayList.get(position).subtitle);
+        holder.vv.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(context, MovieActivity.class));
+            }
+        });
     }
 
     @Override
@@ -47,11 +54,14 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
         TextView txtTrending_title, txtTrending_subTitle;
         ImageView imgTrending_poster;
 
+        View vv;
+
         public ViewHolder(View itemView){
             super(itemView);
             imgTrending_poster = itemView.findViewById(R.id.imgTrending_poster);
             txtTrending_title = itemView.findViewById(R.id.txtTrending_title);
             txtTrending_subTitle = itemView.findViewById(R.id.txtTrending_subTitle);
+            vv = itemView;
         }
     }
 }

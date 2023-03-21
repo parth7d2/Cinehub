@@ -23,6 +23,18 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="semiBold_Display_TextView">
+        <item name="fontFamily">@font/sfpro_display_semibold</item>
+    </style>
+
+    <style name="bold_Display_TextView">
+        <item name="fontFamily">@font/sfpro_display_bold</item>
+    </style>
+
+    <style name="regular_Display_TextView">
+        <item name="fontFamily">@font/sfpro_display_regular</item>
+    </style>
+
 
     <!-- ************* Customize my app theme here *************  -->
     <style name="MyCinehubTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
@@ -40,4 +52,5 @@
         <!-- Customize your theme here. -->
 
     </style>
+
 </resources>

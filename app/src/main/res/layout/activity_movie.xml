@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/graybg"
+    tools:context=".MovieActivity">
+
+    <VideoView
+        android:id="@+id/vdoView"
+        android:layout_width="wrap_content"
+        android:layout_height="262dp" />
+
+    <LinearLayout
+        android:id="@+id/llback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/back_bg_dark">
+
+        <ImageView
+            android:id="@+id/imgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/company_logo"
+            android:src="@drawable/chevron_backward__4_"
+            android:layout_marginStart="7dp"/>
+
+        <TextView
+            android:id="@+id/txtBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:textAppearance="@style/regular_Display_TextView"
+            android:text="@string/back"
+            android:textColor="@color/dark_blue"
+            android:textSize="15sp"
+            android:layout_marginEnd="7dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtMovieTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vdoView"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/semiBold_Display_TextView"
+        android:text="@string/movies_title"
+        android:textColor="@color/black"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/txtMovieSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMovieTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/semiBold_Display_TextView"
+        android:text="@string/movies_subtitle"
+        android:textColor="@color/subTitle"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/txtMovieDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMovieSubTitle"
+        android:layout_marginStart="16dp"
+        android:textSize="12sp"
+        android:layout_marginEnd="16dp"
+        android:textAppearance="@style/regular_Display_TextView"
+        android:text="@string/movies_description"
+        android:textColor="@color/black" />
+
+
+</RelativeLayout>

@@ -3,12 +3,15 @@ package com.example.cinehub;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
@@ -18,6 +21,8 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    LinearLayout llTranding_heading, llRecently_heading, llContinue_heading, llEnglish_heading, llHindi_heading;
 
     RecyclerView trendingRecyclerView;
     RecyclerView recentlyRecyclerView;
@@ -62,6 +67,7 @@ public class HomeFragment extends Fragment {
      * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
+
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -74,6 +80,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -85,7 +92,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
 
 
 //        Trending RecyclerView ***************************************
@@ -221,6 +227,36 @@ public class HomeFragment extends Fragment {
         verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
         hindiRecyclerView.setAdapter(verticalAdapter);
 
+//        SeeAll View ***************************************
+
+        llTranding_heading = view.findViewById(R.id.llTranding_heading);
+        llRecently_heading = view.findViewById(R.id.llRecently_heading);
+        llContinue_heading = view.findViewById(R.id.llContinue_heading);
+        llEnglish_heading = view.findViewById(R.id.llEnglish_heading);
+        llHindi_heading = view.findViewById(R.id.llHindi_heading);
+
+        loadFrag(llTranding_heading, new SeeAllTreandingFragment());
+        loadFrag(llRecently_heading, new SeeAllRecentFragment());
+        loadFrag(llContinue_heading, new SeeAllContinueFragment());
+        loadFrag(llEnglish_heading, new SeeAllEnglishFragment());
+        loadFrag(llHindi_heading, new SeeAllHindiFragment());
+
+
+
         return view;
+    }
+
+    public void loadFrag(LinearLayout linearLayout, Fragment fragment){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int id = fragment.getId();
+                FragmentManager fm = getActivity().getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                fm.popBackStack(String.valueOf(id), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                ft.addToBackStack(String.valueOf(id));
+                ft.replace(R.id.framContainer, fragment).commit();
+            }
+        });
     }
 }
