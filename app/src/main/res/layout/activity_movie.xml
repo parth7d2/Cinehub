@@ -4,13 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/graybg"
+    android:background="#f6f6f6"
     tools:context=".MovieActivity">
 
-    <VideoView
-        android:id="@+id/vdoView"
-        android:layout_width="wrap_content"
-        android:layout_height="262dp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="242dp"
+        android:id="@+id/rr_MoviePlay">
+
+        <ImageView
+            android:id="@+id/imgRecently_poster"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/company_logo"
+            android:scaleType="centerCrop"
+            android:src="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/play_bg"
+            android:contentDescription="@string/company_logo"/>
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/play_fill"
+            android:contentDescription="@string/company_logo"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/llback"
@@ -18,67 +42,213 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/back_bg_dark"
         android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@drawable/back_bg_dark">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
             android:contentDescription="@string/company_logo"
-            android:src="@drawable/chevron_backward__4_"
-            android:layout_marginStart="7dp"/>
+            android:src="@drawable/chevron_backward__4_" />
 
         <TextView
             android:id="@+id/txtBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="7dp"
-            android:textAppearance="@style/regular_Display_TextView"
+            android:layout_marginEnd="7dp"
             android:text="@string/back"
+            android:textAppearance="@style/regular_Display_TextView"
             android:textColor="@color/dark_blue"
-            android:textSize="15sp"
-            android:layout_marginEnd="7dp"/>
-
+            android:textSize="15sp" />
     </LinearLayout>
+
 
     <TextView
         android:id="@+id/txtMovieTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/vdoView"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/movies_title"
+        android:textAppearance="@style/bold_Display_TextView"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/reaction_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMovieTitle"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="@string/save"
+                android:src="@drawable/bookmark" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="@string/save"
+                android:textAppearance="@style/regular_Display_TextView"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="@string/share"
+                android:src="@drawable/arrowshape_turn_up_right" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="@string/share"
+                android:textAppearance="@style/regular_Display_TextView"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="@string/like"
+                android:src="@drawable/airpod_left" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="@string/like"
+                android:textAppearance="@style/regular_Display_TextView"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            tools:ignore="UseCompoundDrawables">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:contentDescription="@string/dolby"
+                android:src="@drawable/airpodsmax" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="@string/dolby"
+                android:textAppearance="@style/regular_Display_TextView"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_WatchMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reaction_bar"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:textAppearance="@style/semiBold_Display_TextView"
-        android:text="@string/movies_title"
+        android:background="@drawable/watch_movie_bg"
+        android:text="@string/watch_movie"
+        android:textAllCaps="false"
+        android:textAppearance="@style/bold_Display_TextView"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:outlineSpotShadowColor="@color/red"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_AddToFavorite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_WatchMovie"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/download_movie_bg"
+        android:text="@string/download"
+        android:textAllCaps="false"
+        android:textAppearance="@style/bold_Display_TextView"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
     <TextView
         android:id="@+id/txtMovieSubTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtMovieTitle"
+        android:layout_below="@+id/btn_AddToFavorite"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:textAppearance="@style/semiBold_Display_TextView"
+        android:background="@drawable/description_bg"
+        android:paddingStart="9dp"
         android:text="@string/movies_subtitle"
+        android:textAppearance="@style/semiBold_Display_TextView"
         android:textColor="@color/subTitle"
         android:textSize="15sp" />
 
     <TextView
         android:id="@+id/txtMovieDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtMovieSubTitle"
         android:layout_marginStart="16dp"
-        android:textSize="12sp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
-        android:textAppearance="@style/regular_Display_TextView"
+        android:background="@drawable/description_bg"
+        android:paddingStart="9dp"
         android:text="@string/movies_description"
-        android:textColor="@color/black" />
-
+        android:textAppearance="@style/regular_Display_TextView"
+        android:textSize="12sp" />
 
 </RelativeLayout>

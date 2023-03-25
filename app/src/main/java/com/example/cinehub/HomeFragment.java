@@ -1,5 +1,6 @@
 package com.example.cinehub;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
@@ -93,8 +95,14 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+//  *************************************** Search View ***************************************
 
-//        Trending RecyclerView ***************************************
+        ImageView imageView = view.findViewById(R.id.img_Search);
+        Intent intent = new Intent(getContext(), SearchActivity.class);
+
+        imageView.setOnClickListener(v -> startActivity(intent));
+
+//  *************************************** Trending RecyclerView ***************************************
 
         trendingRecyclerView = view.findViewById(R.id.trending_recyclerView);
         trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -121,7 +129,7 @@ public class HomeFragment extends Fragment {
 
 
 
-//        Recently RecyclerView ***************************************
+//  *************************************** Recently RecyclerView ***************************************
 
         recentlyRecyclerView = view.findViewById(R.id.recently_recyclerView);
         recentlyRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -148,7 +156,7 @@ public class HomeFragment extends Fragment {
 
 
 
-//        Continue RecyclerView ***************************************
+//  *************************************** Continue RecyclerView ***************************************
 
         continueRecyclerView = view.findViewById(R.id.continue_recyclerView);
         continueRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -175,7 +183,7 @@ public class HomeFragment extends Fragment {
 
 
 
-//        English RecyclerView ***************************************
+//  *************************************** English RecyclerView ***************************************
 
         englishRecyclerView = view.findViewById(R.id.english_recyclerView);
         englishRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -202,7 +210,7 @@ public class HomeFragment extends Fragment {
 
 
 
-//        Hindi RecyclerView ***************************************
+//  *************************************** Hindi RecyclerView ***************************************
 
         hindiRecyclerView = view.findViewById(R.id.hindi_recyclerView);
         hindiRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
@@ -227,7 +235,7 @@ public class HomeFragment extends Fragment {
         verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
         hindiRecyclerView.setAdapter(verticalAdapter);
 
-//        SeeAll View ***************************************
+//  *************************************** SeeAll View ***************************************
 
         llTranding_heading = view.findViewById(R.id.llTranding_heading);
         llRecently_heading = view.findViewById(R.id.llRecently_heading);

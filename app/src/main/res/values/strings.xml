@@ -16,6 +16,8 @@
 
     <string name="back">Back</string>
 
+    <string name="cancel">Cancel</string>
+
 
     <!-- ************************ Row Heading ************************ -->
 
@@ -31,9 +33,16 @@
     <string name="movies_poster">Hotel Transylvania 3: Summer Vacation</string>
     <string name="movies_title">Hotel Transylvania 3: Summer Vacation</string>
     <string name="movies_subtitle">Animation, Comedy, Family</string>
-    <string name="movies_description">Description here…</string>
+    <string name="movies_description">The unbreakable bond between human and animal is brought
+        to life in this touching documentary about two abandoned elephants and their caretakers.</string>
 
-
+    <!-- ************************ Movie Activity ************************ -->
+    <string name="watch_movie">Watch Movie</string>
+    <string name="download">Download</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="like">Like</string>
+    <string name="dolby">Dolby</string>
 
 
 </resources>

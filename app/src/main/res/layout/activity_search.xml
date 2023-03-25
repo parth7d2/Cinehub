@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchActivity">
+
+    <RelativeLayout
+        android:id="@+id/rr_searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
+
+        <EditText
+            android:id="@+id/search_HomeView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            android:layout_marginEnd="13dp"
+            android:layout_toStartOf="@+id/txt_searchCancle"
+            android:autofillHints="name"
+            android:background="@drawable/search_view_bg"
+            android:drawableStart="@drawable/magnifyingglass"
+            android:fontFamily="@font/sfpro_display_regular"
+            android:hint="@string/search_here"
+            android:inputType="text|textAutoCorrect"
+            android:paddingStart="4dp"
+            android:paddingEnd="3dp"
+            android:textColorHint="@color/iconcolor"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txt_searchCancle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/sfpro_display_regular"
+            android:text="@string/cancel"
+            android:textColor="#007AFF"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/rr_searchView"
+        android:layout_marginTop="16dp"
+        android:background="@color/gray" />
+
+</RelativeLayout>
