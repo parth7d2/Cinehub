@@ -9,7 +9,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="242dp"
+        android:layout_height="262dp"
         android:id="@+id/rr_MoviePlay">
 
         <ImageView
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="13dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/back_bg_dark"
         android:gravity="center_vertical"
         android:orientation="horizontal">
@@ -61,7 +61,7 @@
             android:layout_marginStart="7dp"
             android:layout_marginEnd="7dp"
             android:text="@string/back"
-            android:textAppearance="@style/regular_Display_TextView"
+            android:textAppearance="@style/sfpro_display_regular_fonts"
             android:textColor="@color/dark_blue"
             android:textSize="15sp" />
     </LinearLayout>
@@ -72,10 +72,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="234dp"
+        android:layout_marginTop="254dp"
         android:layout_marginEnd="16dp"
         android:text="@string/movies_title"
-        android:textAppearance="@style/bold_Display_TextView"
+        android:textAppearance="@style/sfpro_display_bold_fonts"
         android:textColor="@color/black"
         android:textSize="24sp" />
 
@@ -111,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-7dp"
                 android:text="@string/save"
-                android:textAppearance="@style/regular_Display_TextView"
+                android:textAppearance="@style/sfpro_display_regular_fonts"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -135,7 +135,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-7dp"
                 android:text="@string/share"
-                android:textAppearance="@style/regular_Display_TextView"
+                android:textAppearance="@style/sfpro_display_regular_fonts"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -159,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-7dp"
                 android:text="@string/like"
-                android:textAppearance="@style/regular_Display_TextView"
+                android:textAppearance="@style/sfpro_display_regular_fonts"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -183,7 +183,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-7dp"
                 android:text="@string/dolby"
-                android:textAppearance="@style/regular_Display_TextView"
+                android:textAppearance="@style/sfpro_display_regular_fonts"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -202,7 +202,7 @@
         android:background="@drawable/watch_movie_bg"
         android:text="@string/watch_movie"
         android:textAllCaps="false"
-        android:textAppearance="@style/bold_Display_TextView"
+        android:textAppearance="@style/sfpro_display_bold_fonts"
         android:textColor="@color/white"
         android:textSize="17sp"
         android:outlineSpotShadowColor="@color/red"/>
@@ -218,7 +218,7 @@
         android:background="@drawable/download_movie_bg"
         android:text="@string/download"
         android:textAllCaps="false"
-        android:textAppearance="@style/bold_Display_TextView"
+        android:textAppearance="@style/sfpro_display_bold_fonts"
         android:textColor="@color/black"
         android:textSize="17sp" />
 
@@ -233,7 +233,7 @@
         android:background="@drawable/description_bg"
         android:paddingStart="9dp"
         android:text="@string/movies_subtitle"
-        android:textAppearance="@style/semiBold_Display_TextView"
+        android:textAppearance="@style/sfpro_display_semibold_fonts"
         android:textColor="@color/subTitle"
         android:textSize="15sp" />
 
@@ -248,7 +248,7 @@
         android:background="@drawable/description_bg"
         android:paddingStart="9dp"
         android:text="@string/movies_description"
-        android:textAppearance="@style/regular_Display_TextView"
+        android:textAppearance="@style/sfpro_display_regular_fonts"
         android:textSize="12sp" />
 
 </RelativeLayout>

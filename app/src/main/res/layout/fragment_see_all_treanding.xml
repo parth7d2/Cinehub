@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="36dp"
         android:layout_marginStart="13dp"
         android:background="@drawable/back_bg">
 

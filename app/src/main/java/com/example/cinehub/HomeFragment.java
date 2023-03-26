@@ -114,10 +114,10 @@ public class HomeFragment extends Fragment {
 
 //  *************************************** Search View ***************************************
 
-        ImageView imageView = view.findViewById(R.id.img_Search);
-        Intent intent = new Intent(getContext(), SearchActivity.class);
+        ImageView searchView = view.findViewById(R.id.img_Search);
+        Intent intent_Search = new Intent(getContext(), SearchActivity.class);
 
-        imageView.setOnClickListener(v -> startActivity(intent));
+        searchView.setOnClickListener(v -> startActivity(intent_Search));
 
 //  *************************************** Trending RecyclerView ***************************************
 
@@ -125,21 +125,9 @@ public class HomeFragment extends Fragment {
         trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
         trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
         trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Phir Hera Pheri", "Meri AnuRadha esa nahi karskti"));
         trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri 3", "Radhe... Radhe..."));
         trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dil De Diya", "Meri AnuRadha esa nahi karskti"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Endgame", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Mujhko Yaad Sataye Teri", "Radhe... Radhe..."));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Main Ladki Pom Pom", "Meri AnuRadha esa nahi karskti"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 2", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Denewala Jab Bhi Deta Deta Chhappar Phaad Ke", "Radhe... Radhe..."));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 3", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Shetty👨‍💻", "Meri AnuRadha esa nahi karskti"));
 
         trendingAdapter = new TrendingAdapter(getContext(), trendingModelArrayList);
         trendingRecyclerView.setAdapter(trendingAdapter);
@@ -154,19 +142,8 @@ public class HomeFragment extends Fragment {
         recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
         recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
         recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Phir Hera Pheri", "Meri AnuRadha esa nahi karskti"));
         recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri 3", "Radhe... Radhe..."));
         recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dil De Diya", "Meri AnuRadha esa nahi karskti"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Endgame", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Mujhko Yaad Sataye Teri", "Radhe... Radhe..."));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Main Ladki Pom Pom", "Meri AnuRadha esa nahi karskti"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 2", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Denewala Jab Bhi Deta Deta Chhappar Phaad Ke", "Radhe... Radhe..."));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 3", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Shetty👨‍💻", "Meri AnuRadha esa nahi karskti"));
 
         verticalAdapter = new VerticalAdapter(getContext(), recentlyModelArrayList);
         recentlyRecyclerView.setAdapter(verticalAdapter);
@@ -181,19 +158,8 @@ public class HomeFragment extends Fragment {
         continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
         continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
         continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Phir Hera Pheri", "Meri AnuRadha esa nahi karskti"));
         continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri 3", "Radhe... Radhe..."));
         continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dil De Diya", "Meri AnuRadha esa nahi karskti"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Endgame", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Mujhko Yaad Sataye Teri", "Radhe... Radhe..."));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Main Ladki Pom Pom", "Meri AnuRadha esa nahi karskti"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 2", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Denewala Jab Bhi Deta Deta Chhappar Phaad Ke", "Radhe... Radhe..."));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 3", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Shetty👨‍💻", "Meri AnuRadha esa nahi karskti"));
 
         verticalAdapter = new VerticalAdapter(getContext(), continueModelArrayList);
         continueRecyclerView.setAdapter(verticalAdapter);
@@ -208,19 +174,8 @@ public class HomeFragment extends Fragment {
         englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
         englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
         englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Phir Hera Pheri", "Meri AnuRadha esa nahi karskti"));
         englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri 3", "Radhe... Radhe..."));
         englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dil De Diya", "Meri AnuRadha esa nahi karskti"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Endgame", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Mujhko Yaad Sataye Teri", "Radhe... Radhe..."));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Main Ladki Pom Pom", "Meri AnuRadha esa nahi karskti"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 2", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Denewala Jab Bhi Deta Deta Chhappar Phaad Ke", "Radhe... Radhe..."));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 3", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Shetty👨‍💻", "Meri AnuRadha esa nahi karskti"));
 
         verticalAdapter = new VerticalAdapter(getContext(), englishModelArrayList);
         englishRecyclerView.setAdapter(verticalAdapter);
@@ -235,19 +190,8 @@ public class HomeFragment extends Fragment {
         hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
         hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
         hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Phir Hera Pheri", "Meri AnuRadha esa nahi karskti"));
         hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri 3", "Radhe... Radhe..."));
         hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dil De Diya", "Meri AnuRadha esa nahi karskti"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Endgame", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Mujhko Yaad Sataye Teri", "Radhe... Radhe..."));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Main Ladki Pom Pom", "Meri AnuRadha esa nahi karskti"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 2", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Denewala Jab Bhi Deta Deta Chhappar Phaad Ke", "Radhe... Radhe..."));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglu🧸 Man 3", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Shetty👨‍💻", "Meri AnuRadha esa nahi karskti"));
 
         verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
         hindiRecyclerView.setAdapter(verticalAdapter);
@@ -266,31 +210,26 @@ public class HomeFragment extends Fragment {
         loadFrag(llEnglish_heading, new SeeAllEnglishFragment());
         loadFrag(llHindi_heading, new SeeAllHindiFragment());
 
-
-
         return view;
     }
 
     private void blurBackground() {
         float radius = 16f;
         View decorView = getActivity().getWindow().getDecorView();
-        ViewGroup rootView = (ViewGroup)decorView.findViewById(android.R.id.content);
+        ViewGroup rootView = decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
         blurView.setupWith(rootView, new RenderScriptBlur(getContext())).setFrameClearDrawable(windowBackground).setBlurRadius(radius);
 
     }
 
     public void loadFrag(LinearLayout linearLayout, Fragment fragment){
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int id = fragment.getId();
-                FragmentManager fm = getActivity().getSupportFragmentManager();
-                FragmentTransaction ft = fm.beginTransaction();
-                fm.popBackStack(String.valueOf(id), FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                ft.addToBackStack(String.valueOf(id));
-                ft.replace(R.id.framContainer, fragment).commit();
-            }
+        linearLayout.setOnClickListener(v -> {
+            int id = fragment.getId();
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            fm.popBackStack(String.valueOf(id), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            ft.addToBackStack(String.valueOf(id));
+            ft.replace(R.id.framContainer, fragment).commit();
         });
     }
 }

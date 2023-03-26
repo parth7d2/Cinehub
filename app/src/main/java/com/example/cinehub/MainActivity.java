@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,16 +30,23 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+
+//  *************************************** Avoid View ***************************************
 
         View view = findViewById(R.id.avoid_0View);
         view.setOnClickListener(v -> {
 
         });
 
-        bNView = findViewById(R.id.bNView);
-        blurView = (BlurView) findViewById(R.id.blurLayout);
+//  *************************************** Blur View ***************************************
 
+        bNView = findViewById(R.id.bNView);
+        blurView = findViewById(R.id.blurLayout);
+
+//  *************************************** BottomNavigation View ***************************************
         bNView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -64,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     private void blurBackground() {
         float radius = 16f;
         View decorView = getWindow().getDecorView();
-        ViewGroup rootView = (ViewGroup)decorView.findViewById(android.R.id.content);
+        ViewGroup rootView = decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
         blurView.setupWith(rootView, new RenderScriptBlur(this)).setFrameClearDrawable(windowBackground).setBlurRadius(radius);
     }

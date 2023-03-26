@@ -10,13 +10,15 @@
 
     <string name="company_logo">Company Logo</string>
 
-    <string name="search_here">Search Movies, Genres, Actors,…</string>
+    <string name="search_here">Movies, Genres,…</string>
 
     <string name="see_all">See All</string>
 
     <string name="back">Back</string>
 
     <string name="cancel">Cancel</string>
+
+    <string name="search">Search</string>
 
 
     <!-- ************************ Row Heading ************************ -->

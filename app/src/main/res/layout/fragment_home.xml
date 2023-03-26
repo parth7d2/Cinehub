@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/trending_recyclerView"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -139,7 +139,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/recently_recyclerView"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -196,7 +196,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/continue_recyclerView"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -253,7 +253,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/english_recyclerView"
                 android:layout_marginStart="17dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="6dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -303,7 +303,7 @@
                 android:layout_below="@+id/llHindi_heading"
                 android:layout_marginStart="7dp"
                 android:layout_marginTop="-9dp"
-                android:layout_marginBottom="70dp"/>
+                android:layout_marginBottom="90dp"/>
 
         </RelativeLayout>
     </ScrollView>
@@ -367,5 +367,5 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="101dp"
-        android:background="@color/linegray" />
+        android:background="@color/linegray"/>
 </FrameLayout>
