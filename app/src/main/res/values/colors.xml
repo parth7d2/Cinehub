@@ -19,7 +19,9 @@
     <color name="whitebg">#f6f6f6</color>
     <color name="searchbg">#1F767680</color>
     <color name="iconcolor">#993C3C43</color>
-    <color name="item_ripple_color">#0A007AFF</color>
+    <color name="item_ripple_color">#03FFFFFF</color>
     <color name="subTitle">#993C3C43</color>
+    <color name="colorOverlay">#CCFFFFFF</color>
+    <color name="linegray">#5C3C3C43</color>
 
 </resources>

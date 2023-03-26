@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,12 +11,22 @@
         android:id="@+id/framContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"/>
 
 
+    <View
+        android:id="@+id/avoid_0View"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        android:layout_alignParentBottom="true" />
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurLayout"
+        android:layout_width="match_parent"
+        android:layout_height="86dp"
+        app:blurOverlayColor="@color/colorOverlay"
+        android:layout_alignParentBottom="true"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bNView"
@@ -26,14 +36,21 @@
         app:itemIconTint="@drawable/bottom_nav_icon_color"
         app:itemTextColor="@drawable/bottom_nav_text_color"
         app:labelVisibilityMode="labeled"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="27dp"
         app:menu="@menu/nav_items"
         app:itemRippleColor="@color/item_ripple_color"
         app:itemTextAppearanceActive="@style/Style_TextView"
-        app:itemTextAppearanceInactive="@style/Style_TextView"/>
+        app:itemTextAppearanceInactive="@style/Style_TextView"
+        android:background="@drawable/tranf"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/linegray"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="85.7dp"/>
 
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

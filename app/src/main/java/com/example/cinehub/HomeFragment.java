@@ -1,6 +1,7 @@
 package com.example.cinehub;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -17,12 +18,17 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
+import eightbitlab.com.blurview.BlurView;
+import eightbitlab.com.blurview.RenderScriptBlur;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    BlurView blurView;
 
     LinearLayout llTranding_heading, llRecently_heading, llContinue_heading, llEnglish_heading, llHindi_heading;
 
@@ -94,6 +100,17 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+//  *************************************** Blur View ***************************************
+        blurView = view.findViewById(R.id.blurLayout2);
+        blurBackground();
+
+//  *************************************** Avoid View ***************************************
+        View view1 = view.findViewById(R.id.avoid_view);
+        view1.setOnClickListener(v -> {
+
+        });
+
 
 //  *************************************** Search View ***************************************
 
@@ -252,6 +269,15 @@ public class HomeFragment extends Fragment {
 
 
         return view;
+    }
+
+    private void blurBackground() {
+        float radius = 16f;
+        View decorView = getActivity().getWindow().getDecorView();
+        ViewGroup rootView = (ViewGroup)decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        blurView.setupWith(rootView, new RenderScriptBlur(getContext())).setFrameClearDrawable(windowBackground).setBlurRadius(radius);
+
     }
 
     public void loadFrag(LinearLayout linearLayout, Fragment fragment){
