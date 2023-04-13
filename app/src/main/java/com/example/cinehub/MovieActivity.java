@@ -6,7 +6,10 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -25,5 +28,23 @@ public class MovieActivity extends AppCompatActivity {
 
         LinearLayout llback = findViewById(R.id.llback);
         llback.setOnClickListener(v -> onBackPressed());
+
+        ImageView imagePoster = findViewById(R.id.imgMoviePoster);
+        TextView textTitle = findViewById(R.id.txtMovieTitle);
+        TextView textSubTitle = findViewById(R.id.txtMovieSubTitle);
+
+        if(getIntent().getExtras().getString("title")!= null) {
+            int imgPoster = getIntent().getIntExtra("poster", R.drawable.ic_launcher_background);
+            imagePoster.setImageResource(imgPoster);
+            textTitle.setText(getIntent().getExtras().getString("title"));
+            textSubTitle.setText(getIntent().getExtras().getString("subtitle"));
+        }
+
+        else{
+            int imgPoster = getIntent().getIntExtra("posterV", R.drawable.ic_launcher_background);
+            imagePoster.setImageResource(imgPoster);
+            textTitle.setText(getIntent().getExtras().getString("titleV"));
+            textSubTitle.setText(getIntent().getExtras().getString("subtitleV"));
+        }
     }
 }

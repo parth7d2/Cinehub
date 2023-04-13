@@ -39,7 +39,12 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
         holder.vv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(context, MovieActivity.class));
+                Intent intentMovie = new Intent(context, MovieActivity.class);
+                intentMovie.putExtra("posterV", recentlyModelArrayList.get(position).img);
+                intentMovie.putExtra("titleV", recentlyModelArrayList.get(position).title);
+                intentMovie.putExtra("subtitleV", recentlyModelArrayList.get(position).subtitle);
+
+                v.getContext().startActivity(intentMovie);
             }
         });
 
@@ -47,7 +52,8 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-        return recentlyModelArrayList.size();
+//        return recentlyModelArrayList.size();
+        return 4;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f6f6f6"
+    android:background="@color/black"
     tools:context=".MovieActivity">
 
     <RelativeLayout
@@ -13,12 +13,12 @@
         android:id="@+id/rr_MoviePlay">
 
         <ImageView
-            android:id="@+id/imgRecently_poster"
+            android:id="@+id/imgMoviePoster"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/company_logo"
             android:scaleType="centerCrop"
-            android:src="@color/black" />
+            android:src="@color/white" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -30,9 +30,9 @@
         <ImageView
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:src="@drawable/play_fill"
+            android:layout_centerInParent="true"
             android:contentDescription="@string/company_logo"
-            android:layout_centerInParent="true"/>
+            android:src="@drawable/play_fill" />
 
     </RelativeLayout>
 
@@ -76,7 +76,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/movies_title"
         android:textAppearance="@style/sfpro_display_bold_fonts"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="24sp" />
 
     <LinearLayout
@@ -112,7 +112,8 @@
                 android:layout_marginTop="-7dp"
                 android:text="@string/save"
                 android:textAppearance="@style/sfpro_display_regular_fonts"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
@@ -136,7 +137,8 @@
                 android:layout_marginTop="-7dp"
                 android:text="@string/share"
                 android:textAppearance="@style/sfpro_display_regular_fonts"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
@@ -152,7 +154,7 @@
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:contentDescription="@string/like"
-                android:src="@drawable/airpod_left" />
+                android:src="@drawable/like_thumb" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -160,7 +162,8 @@
                 android:layout_marginTop="-7dp"
                 android:text="@string/like"
                 android:textAppearance="@style/sfpro_display_regular_fonts"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
@@ -184,7 +187,8 @@
                 android:layout_marginTop="-7dp"
                 android:text="@string/dolby"
                 android:textAppearance="@style/sfpro_display_regular_fonts"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:textColor="@color/white"/>
 
         </LinearLayout>
 
@@ -204,8 +208,7 @@
         android:textAllCaps="false"
         android:textAppearance="@style/sfpro_display_bold_fonts"
         android:textColor="@color/white"
-        android:textSize="17sp"
-        android:outlineSpotShadowColor="@color/red"/>
+        android:textSize="17sp"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_AddToFavorite"
@@ -220,35 +223,52 @@
         android:textAllCaps="false"
         android:textAppearance="@style/sfpro_display_bold_fonts"
         android:textColor="@color/black"
-        android:textSize="17sp" />
+        android:textSize="17sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/btn_AddToFavorite"
+        android:background="@drawable/description_bg"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp">
 
     <TextView
         android:id="@+id/txtMovieSubTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_AddToFavorite"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/description_bg"
-        android:paddingStart="9dp"
         android:text="@string/movies_subtitle"
         android:textAppearance="@style/sfpro_display_semibold_fonts"
-        android:textColor="@color/subTitle"
-        android:textSize="15sp" />
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="@color/box_line"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            />
 
     <TextView
         android:id="@+id/txtMovieDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtMovieSubTitle"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="9dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/description_bg"
-        android:paddingStart="9dp"
         android:text="@string/movies_description"
-        android:textAppearance="@style/sfpro_display_regular_fonts"
-        android:textSize="12sp" />
+        android:textAppearance="@style/sfpro_text_regular_fonts"
+        android:textSize="12sp"
+        android:textColor="@color/iconcolor"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="7dp"/>
+
+    </LinearLayout>
 
 </RelativeLayout>

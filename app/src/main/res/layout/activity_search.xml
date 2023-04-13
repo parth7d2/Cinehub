@@ -5,14 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchActivity"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@color/black">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/box_bg"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/search"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:fontFamily="@font/sfpro_display_semibold"
         android:textSize="15sp"
         android:layout_marginTop="36dp"/>
@@ -55,7 +61,7 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/sfpro_display_regular"
             android:text="@string/cancel"
-            android:textColor="#007AFF"
+            android:textColor="@color/dark_blue"
             android:textSize="15sp" />
 
     </RelativeLayout>

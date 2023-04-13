@@ -124,10 +124,11 @@ public class HomeFragment extends Fragment {
         trendingRecyclerView = view.findViewById(R.id.trending_recyclerView);
         trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
+        trendingModelArrayList.add(new PosterModel(R.drawable.avatar_land, "Dheglas: The Way Of Water", "Germany to Canada by train"));
+        trendingModelArrayList.add(new PosterModel(R.drawable.the_avengers_land, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
+        trendingModelArrayList.add(new PosterModel(R.drawable.avengers_ageofultron_land, "Dheglo: Age of Ultron", "Germany to Canada by train"));
+        trendingModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar_land, "Captain Dheglu: Self War", "Germany to Canada by plan"));
+        trendingModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar_land, "Dheglas: Infinity War", "Germany to Canada by train"));
 
         trendingAdapter = new TrendingAdapter(getContext(), trendingModelArrayList);
         trendingRecyclerView.setAdapter(trendingAdapter);
@@ -139,11 +140,10 @@ public class HomeFragment extends Fragment {
         recentlyRecyclerView = view.findViewById(R.id.recently_recyclerView);
         recentlyRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
+        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: Iron Man", "Germany to Canada by plan"));
+        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_1, "Dheglo: Iron Man2", "Germany to Canada by train"));
+        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_2, "Captain Iron Man3", "Germany to Canada by plan"));
+        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_3, "Dheglas: Infinity War", "Germany to Canada by train"));
 
         verticalAdapter = new VerticalAdapter(getContext(), recentlyModelArrayList);
         recentlyRecyclerView.setAdapter(verticalAdapter);
@@ -155,27 +155,23 @@ public class HomeFragment extends Fragment {
         continueRecyclerView = view.findViewById(R.id.continue_recyclerView);
         continueRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
+        continueModelArrayList.add(new PosterModel(R.drawable.theavengers, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
+        continueModelArrayList.add(new PosterModel(R.drawable.avengersageofultron, "Dheglo: Age of Ultron", "Germany to Canada by train"));
+        continueModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar, "Captain Dheglu: Self War", "Germany to Canada by plan"));
+        continueModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar, "Dheglas: Infinity War", "Germany to Canada by train"));
 
         verticalAdapter = new VerticalAdapter(getContext(), continueModelArrayList);
         continueRecyclerView.setAdapter(verticalAdapter);
-
-
-
+        
 //  *************************************** English RecyclerView ***************************************
 
         englishRecyclerView = view.findViewById(R.id.english_recyclerView);
         englishRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
+        englishModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
+        englishModelArrayList.add(new PosterModel(R.drawable.ironman_1, "Dheglo: Age of Ultron", "Germany to Canada by train"));
+        englishModelArrayList.add(new PosterModel(R.drawable.ironman_2, "Captain Dheglu: Self War", "Germany to Canada by plan"));
+        englishModelArrayList.add(new PosterModel(R.drawable.ironman_3, "Dheglas: Infinity War", "Germany to Canada by train"));
 
         verticalAdapter = new VerticalAdapter(getContext(), englishModelArrayList);
         englishRecyclerView.setAdapter(verticalAdapter);
@@ -187,11 +183,10 @@ public class HomeFragment extends Fragment {
         hindiRecyclerView = view.findViewById(R.id.hindi_recyclerView);
         hindiRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Hera Pheri by Shetty", "Radhe... Radhe..."));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.ic_launcher_background, "Dheglas: Infinity War", "Germany to Canada by train"));
+        hindiModelArrayList.add(new PosterModel(R.drawable.theavengers, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
+        hindiModelArrayList.add(new PosterModel(R.drawable.avengersageofultron, "Dheglo: Age of Ultron", "Germany to Canada by train"));
+        hindiModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar, "Captain Dheglu: Self War", "Germany to Canada by plan"));
+        hindiModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar, "Dheglas: Infinity War", "Germany to Canada by train"));
 
         verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
         hindiRecyclerView.setAdapter(verticalAdapter);

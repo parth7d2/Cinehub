@@ -1,5 +1,6 @@
 package com.example.cinehub;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -40,14 +41,20 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
         holder.vv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(context, MovieActivity.class));
+                Intent movieIntent = new Intent(context, MovieActivity.class);
+                movieIntent.putExtra("poster", trendingModelArrayList.get(position).img);
+                movieIntent.putExtra("title", trendingModelArrayList.get(position).title);
+                movieIntent.putExtra("subtitle", trendingModelArrayList.get(position).subtitle);
+                v.getContext().startActivity(movieIntent);
+
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return trendingModelArrayList.size();
+//        return trendingModelArrayList.size();
+        return 4;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -5,7 +5,7 @@
     android:id="@+id/seeAll_Treanding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/black"
     tools:context=".SeeAllTreandingFragment">
 
     <LinearLayout
@@ -47,7 +47,7 @@
         android:fontFamily="@font/sfpro_display_bold"
         android:gravity="center"
         android:text="@string/trending_heading"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

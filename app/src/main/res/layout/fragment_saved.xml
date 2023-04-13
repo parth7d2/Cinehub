@@ -13,6 +13,6 @@
         android:text="@string/saveFragment"
         android:fontFamily="@font/sfpro_display_bold"
         android:textSize="48sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 </FrameLayout>

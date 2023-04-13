@@ -45,7 +45,7 @@
         android:fontFamily="@font/sfpro_display_bold"
         android:gravity="center"
         android:text="@string/english_heading"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
