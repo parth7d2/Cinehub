@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 
 public class MovieActivity extends AppCompatActivity {
 
@@ -32,19 +34,28 @@ public class MovieActivity extends AppCompatActivity {
         ImageView imagePoster = findViewById(R.id.imgMoviePoster);
         TextView textTitle = findViewById(R.id.txtMovieTitle);
         TextView textSubTitle = findViewById(R.id.txtMovieSubTitle);
+        TextView textDesc = findViewById(R.id.txtMovieDescription);
 
         if(getIntent().getExtras().getString("title")!= null) {
-            int imgPoster = getIntent().getIntExtra("poster", R.drawable.ic_launcher_background);
-            imagePoster.setImageResource(imgPoster);
+            String imgPoster = getIntent().getExtras().getString("poster");
+//            imagePoster.setImageResource(imgPoster);
+            Picasso.get()
+                    .load("https://image.tmdb.org/t/p/w500" +imgPoster)
+                    .placeholder( R.drawable.ic_launcher_background)
+                    .into(imagePoster);
             textTitle.setText(getIntent().getExtras().getString("title"));
             textSubTitle.setText(getIntent().getExtras().getString("subtitle"));
+            textDesc.setText(getIntent().getExtras().getString("desc"));
         }
-
         else{
-            int imgPoster = getIntent().getIntExtra("posterV", R.drawable.ic_launcher_background);
-            imagePoster.setImageResource(imgPoster);
+            String imgPoster = getIntent().getExtras().getString("posterV");
+            Picasso.get()
+                    .load("https://image.tmdb.org/t/p/w500" +imgPoster)
+                    .placeholder( R.drawable.ic_launcher_background)
+                    .into(imagePoster);
             textTitle.setText(getIntent().getExtras().getString("titleV"));
             textSubTitle.setText(getIntent().getExtras().getString("subtitleV"));
+            textDesc.setText(getIntent().getExtras().getString("descV"));
         }
     }
 }

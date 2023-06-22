@@ -11,15 +11,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHolder> {
 
     Context context;
 
-    ArrayList<PosterModel> recentlyModelArrayList;
+    ArrayList<MovieModel> recentlyModelArrayList;
 
-    public VerticalAdapter(Context context, ArrayList<PosterModel> recentlyModelArrayList){
+    public VerticalAdapter(Context context, ArrayList<MovieModel> recentlyModelArrayList){
         this.context = context;
         this.recentlyModelArrayList = recentlyModelArrayList;
     }
@@ -32,18 +34,18 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imgRecently_poster.setImageResource(recentlyModelArrayList.get(position).img);
-        holder.txtRecently_title.setText(recentlyModelArrayList.get(position).title);
-        holder.txtRecently_subTitle.setText(recentlyModelArrayList.get(position).subtitle);
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + recentlyModelArrayList.get(position).getPoster_path()).into(holder.imgRecently_poster);
+        holder.txtRecently_title.setText(recentlyModelArrayList.get(position).getOriginal_title());
+        holder.txtRecently_subTitle.setText(recentlyModelArrayList.get(position).getRelease_date() + " " + String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
 
         holder.vv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentMovie = new Intent(context, MovieActivity.class);
-                intentMovie.putExtra("posterV", recentlyModelArrayList.get(position).img);
-                intentMovie.putExtra("titleV", recentlyModelArrayList.get(position).title);
-                intentMovie.putExtra("subtitleV", recentlyModelArrayList.get(position).subtitle);
-
+                intentMovie.putExtra("posterV", recentlyModelArrayList.get(position).getPoster_path());
+                intentMovie.putExtra("titleV", recentlyModelArrayList.get(position).getOriginal_title());
+                intentMovie.putExtra("subtitleV", recentlyModelArrayList.get(position).getRelease_date() + " " + String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
+                intentMovie.putExtra("descV", recentlyModelArrayList.get(position).getOverview());
                 v.getContext().startActivity(intentMovie);
             }
         });
@@ -52,8 +54,8 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-//        return recentlyModelArrayList.size();
-        return 4;
+        return recentlyModelArrayList.size();
+
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

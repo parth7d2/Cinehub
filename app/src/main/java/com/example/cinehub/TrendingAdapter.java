@@ -12,15 +12,17 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHolder> {
 
     Context context;
 
-    ArrayList<PosterModel> trendingModelArrayList;
+    ArrayList<MovieModel> trendingModelArrayList;
 
-    public TrendingAdapter(Context context, ArrayList<PosterModel> trendingModelArrayList){
+    public TrendingAdapter(Context context, ArrayList<MovieModel> trendingModelArrayList){
         this.context = context;
         this.trendingModelArrayList = trendingModelArrayList;
     }
@@ -35,16 +37,22 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imgTrending_poster.setImageResource(trendingModelArrayList.get(position).img);
-        holder.txtTrending_title.setText(trendingModelArrayList.get(position).title);
-        holder.txtTrending_subTitle.setText(trendingModelArrayList.get(position).subtitle);
+//        holder.imgTrending_poster.setImageResource(trendingModelArrayList.get(position).img);
+//        holder.txtTrending_title.setText(trendingModelArrayList.get(position).title);
+//        holder.txtTrending_subTitle.setText(trendingModelArrayList.get(position).subtitle);
+
+        holder.txtTrending_title.setText(trendingModelArrayList.get(position).getOriginal_title());
+//        holder.txt_SubTitleMovie.setText(trendingModelArrayList.get(position).getOverview());
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + trendingModelArrayList.get(position).getPoster_path()).into(holder.imgTrending_poster);
+        holder.txtTrending_subTitle.setText(trendingModelArrayList.get(position).getRelease_date() + " " + String.valueOf(trendingModelArrayList.get(position).getVote_average()));
         holder.vv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent movieIntent = new Intent(context, MovieActivity.class);
-                movieIntent.putExtra("poster", trendingModelArrayList.get(position).img);
-                movieIntent.putExtra("title", trendingModelArrayList.get(position).title);
-                movieIntent.putExtra("subtitle", trendingModelArrayList.get(position).subtitle);
+                movieIntent.putExtra("poster", trendingModelArrayList.get(position).getPoster_path());
+                movieIntent.putExtra("title", trendingModelArrayList.get(position).getOriginal_title());
+                movieIntent.putExtra("subtitle", trendingModelArrayList.get(position).getRelease_date() + " " + String.valueOf(trendingModelArrayList.get(position).getVote_average()));
+                movieIntent.putExtra("desc", trendingModelArrayList.get(position).getOverview());
                 v.getContext().startActivity(movieIntent);
 
             }
@@ -53,8 +61,8 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
 
     @Override
     public int getItemCount() {
-//        return trendingModelArrayList.size();
-        return 4;
+        return trendingModelArrayList.size();
+//        return 4;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

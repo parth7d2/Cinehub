@@ -10,16 +10,23 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 import eightbitlab.com.blurview.BlurView;
 import eightbitlab.com.blurview.RenderScriptBlur;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,30 +35,34 @@ import eightbitlab.com.blurview.RenderScriptBlur;
  */
 public class HomeFragment extends Fragment {
 
+    View view;
+
     BlurView blurView;
 
     LinearLayout llTranding_heading, llRecently_heading, llContinue_heading, llEnglish_heading, llHindi_heading;
 
-    RecyclerView trendingRecyclerView;
-    RecyclerView recentlyRecyclerView;
-    RecyclerView continueRecyclerView;
-
-    RecyclerView englishRecyclerView;
-
-    RecyclerView hindiRecyclerView;
+    RecyclerView trendingRecyclerView, recentlyRecyclerView, continueRecyclerView, englishRecyclerView, hindiRecyclerView;
 
 
-    ArrayList<PosterModel> trendingModelArrayList = new ArrayList<>();
-    ArrayList<PosterModel> recentlyModelArrayList = new ArrayList<>();
-    ArrayList<PosterModel> continueModelArrayList = new ArrayList<>();
+    ArrayList<MovieModel> trendingModelArrayList = new ArrayList<>();
+    ArrayList<MovieModel> recentlyModelArrayList = new ArrayList<>();
+    ArrayList<MovieModel> continueModelArrayList = new ArrayList<>();
 
-    ArrayList<PosterModel> englishModelArrayList = new ArrayList<>();
+    ArrayList<MovieModel> englishModelArrayList = new ArrayList<>();
 
-    ArrayList<PosterModel> hindiModelArrayList = new ArrayList<>();
+    ArrayList<MovieModel> hindiModelArrayList = new ArrayList<>();
 
     TrendingAdapter trendingAdapter;
 
     VerticalAdapter verticalAdapter;
+
+    ArrayList<MovieModel> movieArrayList = new ArrayList<>();
+
+    final String url = "https://api.themoviedb.org/";
+
+//    int startPosition = 0;  // Starting position (inclusive)
+//    int endPosition = 4;    // Ending position (inclusive)
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,7 +86,6 @@ public class HomeFragment extends Fragment {
      * @return A new instance of fragment HomeFragment.
      */
     // TODO: Rename and change types and number of parameters
-
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -93,13 +103,18 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+//  *************************************** Retrofit ***************************************
+        getJsonData();
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+
 
 //  *************************************** Blur View ***************************************
         blurView = view.findViewById(R.id.blurLayout2);
@@ -107,9 +122,7 @@ public class HomeFragment extends Fragment {
 
 //  *************************************** Avoid View ***************************************
         View view1 = view.findViewById(R.id.avoid_view);
-        view1.setOnClickListener(v -> {
-
-        });
+        view1.setOnClickListener(v -> {});
 
 
 //  *************************************** Search View ***************************************
@@ -121,75 +134,33 @@ public class HomeFragment extends Fragment {
 
 //  *************************************** Trending RecyclerView ***************************************
 
-        trendingRecyclerView = view.findViewById(R.id.trending_recyclerView);
-        trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        trendingModelArrayList.add(new PosterModel(R.drawable.avatar_land, "Dheglas: The Way Of Water", "Germany to Canada by train"));
+//        trendingModelArrayList.add(new PosterModel(R.drawable.the_avengers_land, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
 
-        trendingModelArrayList.add(new PosterModel(R.drawable.avatar_land, "Dheglas: The Way Of Water", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.the_avengers_land, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.avengers_ageofultron_land, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar_land, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        trendingModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar_land, "Dheglas: Infinity War", "Germany to Canada by train"));
-
-        trendingAdapter = new TrendingAdapter(getContext(), trendingModelArrayList);
-        trendingRecyclerView.setAdapter(trendingAdapter);
-
+        getTrendingRecyclerView();
 
 
 //  *************************************** Recently RecyclerView ***************************************
 
-        recentlyRecyclerView = view.findViewById(R.id.recently_recyclerView);
-        recentlyRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+//        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: Iron Man", "Germany to Canada by plan"));
 
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: Iron Man", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_1, "Dheglo: Iron Man2", "Germany to Canada by train"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_2, "Captain Iron Man3", "Germany to Canada by plan"));
-        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman_3, "Dheglas: Infinity War", "Germany to Canada by train"));
-
-        verticalAdapter = new VerticalAdapter(getContext(), recentlyModelArrayList);
-        recentlyRecyclerView.setAdapter(verticalAdapter);
-
+        getRecentlyRecyclerView();
 
 
 //  *************************************** Continue RecyclerView ***************************************
 
-        continueRecyclerView = view.findViewById(R.id.continue_recyclerView);
-        continueRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        getContinueRecyclerView();
 
-        continueModelArrayList.add(new PosterModel(R.drawable.theavengers, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.avengersageofultron, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        continueModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        continueModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar, "Dheglas: Infinity War", "Germany to Canada by train"));
 
-        verticalAdapter = new VerticalAdapter(getContext(), continueModelArrayList);
-        continueRecyclerView.setAdapter(verticalAdapter);
-        
 //  *************************************** English RecyclerView ***************************************
 
-        englishRecyclerView = view.findViewById(R.id.english_recyclerView);
-        englishRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-
-        englishModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ironman_1, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ironman_2, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        englishModelArrayList.add(new PosterModel(R.drawable.ironman_3, "Dheglas: Infinity War", "Germany to Canada by train"));
-
-        verticalAdapter = new VerticalAdapter(getContext(), englishModelArrayList);
-        englishRecyclerView.setAdapter(verticalAdapter);
-
+        getEnglishRecyclerView();
 
 
 //  *************************************** Hindi RecyclerView ***************************************
 
-        hindiRecyclerView = view.findViewById(R.id.hindi_recyclerView);
-        hindiRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        getHindiRecyclerView();
 
-        hindiModelArrayList.add(new PosterModel(R.drawable.theavengers, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.avengersageofultron, "Dheglo: Age of Ultron", "Germany to Canada by train"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.captain_america_civilwar, "Captain Dheglu: Self War", "Germany to Canada by plan"));
-        hindiModelArrayList.add(new PosterModel(R.drawable.avengers_infinitywar, "Dheglas: Infinity War", "Germany to Canada by train"));
-
-        verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
-        hindiRecyclerView.setAdapter(verticalAdapter);
 
 //  *************************************** SeeAll View ***************************************
 
@@ -208,16 +179,158 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    //  *************************************** Retrofit Object and Data Fetching ***************************************
+    private void getJsonData() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetroService_interface service_interface = retrofit.create(RetroService_interface.class);
+
+        Call<JsonModel> call = service_interface.getData();
+
+        call.enqueue(new Callback<JsonModel>() {
+            @Override
+            public void onResponse(Call<JsonModel> call, Response<JsonModel> response) {
+                JsonModel model = response.body();
+                movieArrayList = model.getResults();
+                Toast.makeText(getContext(), "Server Connected", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onFailure(Call<JsonModel> call, Throwable t) {
+//                Toast.makeText(MainActivity.this, t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+
+    //  *************************************** Blur View Method ***************************************
     private void blurBackground() {
         float radius = 16f;
         View decorView = getActivity().getWindow().getDecorView();
         ViewGroup rootView = decorView.findViewById(android.R.id.content);
         Drawable windowBackground = decorView.getBackground();
         blurView.setupWith(rootView, new RenderScriptBlur(getContext())).setFrameClearDrawable(windowBackground).setBlurRadius(radius);
+    }
+
+
+    //  *************************************** Trending RecyclerView Method ***************************************
+    private void getTrendingRecyclerView() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                startPosition = Math.max(startPosition, -1);
+//                endPosition = Math.min(endPosition, movieArrayList.size() - 1);
+
+                for (int i = 0 ; i <= 4; i++) {
+                    trendingModelArrayList.add(movieArrayList.get(i));
+                }
+
+                trendingRecyclerView = view.findViewById(R.id.trending_recyclerView);
+                trendingRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+                trendingAdapter = new TrendingAdapter(getContext(), trendingModelArrayList);
+                trendingRecyclerView.setAdapter(trendingAdapter);
+            }
+        }, 1000);
 
     }
 
-    public void loadFrag(LinearLayout linearLayout, Fragment fragment){
+
+    //  *************************************** Recently RecyclerView Method***************************************
+    private void getRecentlyRecyclerView() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                startPosition = Math.max(startPosition + 5, startPosition);
+//                endPosition = Math.min(endPosition + 5, movieArrayList.size() - 1);
+
+                for (int i = 5; i <= 9; i++) {
+                    recentlyModelArrayList.add(movieArrayList.get(i));
+                }
+
+                recentlyRecyclerView = view.findViewById(R.id.recently_recyclerView);
+                recentlyRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+                verticalAdapter = new VerticalAdapter(getContext(), recentlyModelArrayList);
+                recentlyRecyclerView.setAdapter(verticalAdapter);
+            }
+        }, 2000);
+
+    }
+
+
+    //  *************************************** Continue RecyclerView Method ***************************************
+    private void getContinueRecyclerView() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 10; i <= 14; i++) {
+                    continueModelArrayList.add(movieArrayList.get(i));
+                }
+
+                continueRecyclerView = view.findViewById(R.id.continue_recyclerView);
+                continueRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+                verticalAdapter = new VerticalAdapter(getContext(), continueModelArrayList);
+                continueRecyclerView.setAdapter(verticalAdapter);
+            }
+        }, 3000);
+
+    }
+
+
+    //  *************************************** English RecyclerView Method ***************************************
+    private void getEnglishRecyclerView() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 15; i <= 19; i++) {
+                    englishModelArrayList.add(movieArrayList.get(i));
+                }
+
+                englishRecyclerView = view.findViewById(R.id.english_recyclerView);
+                englishRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+
+                verticalAdapter = new VerticalAdapter(getContext(), englishModelArrayList);
+                englishRecyclerView.setAdapter(verticalAdapter);
+            }
+        }, 4000);
+
+    }
+
+
+    //  *************************************** Hindi RecyclerView Method ***************************************
+    private void getHindiRecyclerView() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+
+                for (int i = 15; i <= 19; i++) {
+                    hindiModelArrayList.add(movieArrayList.get(i));
+                }
+
+                hindiRecyclerView = view.findViewById(R.id.hindi_recyclerView);
+                hindiRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+
+
+                verticalAdapter = new VerticalAdapter(getContext(), hindiModelArrayList);
+                hindiRecyclerView.setAdapter(verticalAdapter);
+
+//                startPosition = 0;
+//                endPosition = 4;
+            }
+        }, 5000);
+
+    }
+
+
+    public void loadFrag(LinearLayout linearLayout, Fragment fragment) {
         linearLayout.setOnClickListener(v -> {
             int id = fragment.getId();
             FragmentManager fm = getActivity().getSupportFragmentManager();
@@ -227,4 +340,6 @@ public class HomeFragment extends Fragment {
             ft.replace(R.id.framContainer, fragment).commit();
         });
     }
+
+
 }
