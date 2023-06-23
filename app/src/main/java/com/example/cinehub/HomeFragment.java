@@ -63,6 +63,8 @@ public class HomeFragment extends Fragment {
 //    int startPosition = 0;  // Starting position (inclusive)
 //    int endPosition = 4;    // Ending position (inclusive)
 
+    boolean data = false;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -132,34 +134,44 @@ public class HomeFragment extends Fragment {
 
         searchView.setOnClickListener(v -> startActivity(intent_Search));
 
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if(data) {
+
 //  *************************************** Trending RecyclerView ***************************************
 
 //        trendingModelArrayList.add(new PosterModel(R.drawable.avatar_land, "Dheglas: The Way Of Water", "Germany to Canada by train"));
 //        trendingModelArrayList.add(new PosterModel(R.drawable.the_avengers_land, "Captain Dheglu: The First Avenger", "Germany to Canada by plan"));
 
-        getTrendingRecyclerView();
+                    getTrendingRecyclerView();
 
 
 //  *************************************** Recently RecyclerView ***************************************
 
 //        recentlyModelArrayList.add(new PosterModel(R.drawable.ironman, "Captain Dheglu: Iron Man", "Germany to Canada by plan"));
 
-        getRecentlyRecyclerView();
+                    getRecentlyRecyclerView();
 
 
 //  *************************************** Continue RecyclerView ***************************************
 
-        getContinueRecyclerView();
+                    getContinueRecyclerView();
 
 
 //  *************************************** English RecyclerView ***************************************
 
-        getEnglishRecyclerView();
+                    getEnglishRecyclerView();
 
 
 //  *************************************** Hindi RecyclerView ***************************************
 
-        getHindiRecyclerView();
+                    getHindiRecyclerView();
+
+                }
+
+            }
+        }, 3000);
 
 
 //  *************************************** SeeAll View ***************************************
@@ -196,6 +208,7 @@ public class HomeFragment extends Fragment {
                 JsonModel model = response.body();
                 movieArrayList = model.getResults();
                 Toast.makeText(getContext(), "Server Connected", Toast.LENGTH_LONG).show();
+                data = true;
             }
 
             @Override
@@ -218,9 +231,7 @@ public class HomeFragment extends Fragment {
 
     //  *************************************** Trending RecyclerView Method ***************************************
     private void getTrendingRecyclerView() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
 //                startPosition = Math.max(startPosition, -1);
 //                endPosition = Math.min(endPosition, movieArrayList.size() - 1);
 
@@ -233,17 +244,14 @@ public class HomeFragment extends Fragment {
 
                 trendingAdapter = new TrendingAdapter(getContext(), trendingModelArrayList);
                 trendingRecyclerView.setAdapter(trendingAdapter);
-            }
-        }, 1000);
+
 
     }
 
 
     //  *************************************** Recently RecyclerView Method***************************************
     private void getRecentlyRecyclerView() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
 //                startPosition = Math.max(startPosition + 5, startPosition);
 //                endPosition = Math.min(endPosition + 5, movieArrayList.size() - 1);
 
@@ -256,17 +264,14 @@ public class HomeFragment extends Fragment {
 
                 verticalAdapter = new VerticalAdapter(getContext(), recentlyModelArrayList);
                 recentlyRecyclerView.setAdapter(verticalAdapter);
-            }
-        }, 2000);
+
 
     }
 
 
     //  *************************************** Continue RecyclerView Method ***************************************
     private void getContinueRecyclerView() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
 
                 for (int i = 10; i <= 14; i++) {
                     continueModelArrayList.add(movieArrayList.get(i));
@@ -277,17 +282,14 @@ public class HomeFragment extends Fragment {
 
                 verticalAdapter = new VerticalAdapter(getContext(), continueModelArrayList);
                 continueRecyclerView.setAdapter(verticalAdapter);
-            }
-        }, 3000);
+
 
     }
 
 
     //  *************************************** English RecyclerView Method ***************************************
     private void getEnglishRecyclerView() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
 
                 for (int i = 15; i <= 19; i++) {
                     englishModelArrayList.add(movieArrayList.get(i));
@@ -299,17 +301,14 @@ public class HomeFragment extends Fragment {
 
                 verticalAdapter = new VerticalAdapter(getContext(), englishModelArrayList);
                 englishRecyclerView.setAdapter(verticalAdapter);
-            }
-        }, 4000);
+
 
     }
 
 
     //  *************************************** Hindi RecyclerView Method ***************************************
     private void getHindiRecyclerView() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+
 
                 for (int i = 15; i <= 19; i++) {
                     hindiModelArrayList.add(movieArrayList.get(i));
@@ -324,8 +323,6 @@ public class HomeFragment extends Fragment {
 
 //                startPosition = 0;
 //                endPosition = 4;
-            }
-        }, 5000);
 
     }
 
