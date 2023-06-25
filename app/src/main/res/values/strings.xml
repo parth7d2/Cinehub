@@ -47,4 +47,20 @@
     <string name="dolby">Dolby</string>
 
 
+    <!-- ************************ Player Activity ************************ -->
+    <string name="unmute">UnMute</string>
+    <string name="mute">Mute</string>
+    <string name="speed1_5">Speed(1.5x)</string>
+    <string name="speed0_5">Speed(0.5x)</string>
+    <string name="speed1">Speed(1x)</string>
+    <!--Player Res. custom_controller layout -->
+    <string name="hundred">100</string>
+    <string name="captions">Captions</string>
+    <string name="slash">/</string>
+
+    <!-- ************************ Splash Activity ************************* -->
+    <string name="from">from Parth7D2</string>
+
+
+
 </resources>
