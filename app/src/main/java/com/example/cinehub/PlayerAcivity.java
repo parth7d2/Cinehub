@@ -80,6 +80,8 @@ public class PlayerAcivity extends AppCompatActivity {
         ll_speed = playerControlView.findViewById(R.id.ll_speed);
         txt_speed = playerControlView.findViewById(R.id.txt_speed);
         bright_no = playerControlView.findViewById(R.id.brt_number);
+        LinearLayout llbackplayer = playerControlView.findViewById(R.id.llbackplayer);
+        llbackplayer.setOnClickListener(v -> onBackPressed());
 
 //********************************************* Video Path and Set Video Player *********************************************
 

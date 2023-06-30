@@ -34,9 +34,12 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + recentlyModelArrayList.get(position).getPoster_path()).into(holder.imgRecently_poster);
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + recentlyModelArrayList.get(position).getPoster_path())
+                .placeholder(R.drawable.progress_animation)
+                .error(R.drawable.progress_animation)
+                .into(holder.imgRecently_poster);
         holder.txtRecently_title.setText(recentlyModelArrayList.get(position).getOriginal_title());
-        holder.txtRecently_subTitle.setText(recentlyModelArrayList.get(position).getRelease_date() + " " + String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
+        holder.txtRecently_subTitle.setText("Date: " + recentlyModelArrayList.get(position).getRelease_date() + " Rate: " + String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
 
         holder.vv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +47,8 @@ public class VerticalAdapter extends RecyclerView.Adapter<VerticalAdapter.ViewHo
                 Intent intentMovie = new Intent(context, MovieActivity.class);
                 intentMovie.putExtra("posterV", recentlyModelArrayList.get(position).getPoster_path());
                 intentMovie.putExtra("titleV", recentlyModelArrayList.get(position).getOriginal_title());
-                intentMovie.putExtra("subtitleV", recentlyModelArrayList.get(position).getRelease_date() + " " + String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
+                intentMovie.putExtra("subtitleV", recentlyModelArrayList.get(position).getRelease_date());
+                intentMovie.putExtra("rateV" , String.valueOf(recentlyModelArrayList.get(position).getVote_average()));
                 intentMovie.putExtra("descV", recentlyModelArrayList.get(position).getOverview());
                 v.getContext().startActivity(intentMovie);
             }

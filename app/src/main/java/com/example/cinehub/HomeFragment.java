@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 import eightbitlab.com.blurview.BlurView;
@@ -134,10 +136,24 @@ public class HomeFragment extends Fragment {
 
         searchView.setOnClickListener(v -> startActivity(intent_Search));
 
+//  *************************************** Home RecyclerViews ***************************************
+
+        ImageView imgHometrend = view.findViewById(R.id.img_1stTrandingPicture);
+        llTranding_heading = view.findViewById(R.id.llTranding_heading);
+        llRecently_heading = view.findViewById(R.id.llRecently_heading);
+        llContinue_heading = view.findViewById(R.id.llContinue_heading);
+        llEnglish_heading = view.findViewById(R.id.llEnglish_heading);
+        llHindi_heading = view.findViewById(R.id.llHindi_heading);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 if(data) {
+
+                    Picasso.get()
+                            .load("https://image.tmdb.org/t/p/w500" + movieArrayList.get(0).getPoster_path())
+                            .placeholder(R.drawable.progress_animation)
+                            .error(R.drawable.progress_animation)
+                            .into(imgHometrend);
 
 //  *************************************** Trending RecyclerView ***************************************
 
@@ -168,6 +184,12 @@ public class HomeFragment extends Fragment {
 
                     getHindiRecyclerView();
 
+                    loadFrag(llTranding_heading, new SeeAllTreandingFragment(movieArrayList));
+                    loadFrag(llRecently_heading, new SeeAllRecentFragment(movieArrayList));
+                    loadFrag(llContinue_heading, new SeeAllContinueFragment(movieArrayList));
+                    loadFrag(llEnglish_heading, new SeeAllEnglishFragment(movieArrayList));
+                    loadFrag(llHindi_heading, new SeeAllHindiFragment(movieArrayList));
+
                 }
 
             }
@@ -176,17 +198,6 @@ public class HomeFragment extends Fragment {
 
 //  *************************************** SeeAll View ***************************************
 
-        llTranding_heading = view.findViewById(R.id.llTranding_heading);
-        llRecently_heading = view.findViewById(R.id.llRecently_heading);
-        llContinue_heading = view.findViewById(R.id.llContinue_heading);
-        llEnglish_heading = view.findViewById(R.id.llEnglish_heading);
-        llHindi_heading = view.findViewById(R.id.llHindi_heading);
-
-        loadFrag(llTranding_heading, new SeeAllTreandingFragment());
-        loadFrag(llRecently_heading, new SeeAllRecentFragment());
-        loadFrag(llContinue_heading, new SeeAllContinueFragment());
-        loadFrag(llEnglish_heading, new SeeAllEnglishFragment());
-        loadFrag(llHindi_heading, new SeeAllHindiFragment());
 
         return view;
     }
@@ -234,6 +245,7 @@ public class HomeFragment extends Fragment {
 
 //                startPosition = Math.max(startPosition, -1);
 //                endPosition = Math.min(endPosition, movieArrayList.size() - 1);
+
 
                 for (int i = 0 ; i <= 4; i++) {
                     trendingModelArrayList.add(movieArrayList.get(i));
@@ -310,8 +322,9 @@ public class HomeFragment extends Fragment {
     private void getHindiRecyclerView() {
 
 
-                for (int i = 15; i <= 19; i++) {
+                for (int i = 3; i <= movieArrayList.size()-1; i++) {
                     hindiModelArrayList.add(movieArrayList.get(i));
+                    i+=1;
                 }
 
                 hindiRecyclerView = view.findViewById(R.id.hindi_recyclerView);
@@ -326,6 +339,8 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+    //  *************************************** See All Method ***************************************
 
     public void loadFrag(LinearLayout linearLayout, Fragment fragment) {
         linearLayout.setOnClickListener(v -> {

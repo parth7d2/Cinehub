@@ -45,9 +45,10 @@
             android:drawableStart="@drawable/magnifyingglass"
             android:fontFamily="@font/sfpro_display_regular"
             android:hint="@string/search_here"
-            android:inputType="text|textAutoCorrect"
+            android:inputType="text"
             android:paddingStart="4dp"
             android:paddingEnd="3dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/iconcolor"
             android:textCursorDrawable="@drawable/cursor"
             android:textSize="15sp" />
@@ -67,9 +68,18 @@
     </RelativeLayout>
 
     <View
+        android:id="@+id/view_bottom"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="130dp"
         android:background="@color/gray" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignTop="@+id/view_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"/>
 </RelativeLayout>

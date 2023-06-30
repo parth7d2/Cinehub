@@ -43,15 +43,19 @@ public class TrendingAdapter extends RecyclerView.Adapter<TrendingAdapter.ViewHo
 
         holder.txtTrending_title.setText(trendingModelArrayList.get(position).getOriginal_title());
 //        holder.txt_SubTitleMovie.setText(trendingModelArrayList.get(position).getOverview());
-        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + trendingModelArrayList.get(position).getPoster_path()).into(holder.imgTrending_poster);
-        holder.txtTrending_subTitle.setText(trendingModelArrayList.get(position).getRelease_date() + " " + String.valueOf(trendingModelArrayList.get(position).getVote_average()));
+        Picasso.get().load("https://image.tmdb.org/t/p/w500/" + trendingModelArrayList.get(position).getPoster_path())
+                .placeholder(R.drawable.progress_animation)
+                .error(R.drawable.progress_animation)
+                .into(holder.imgTrending_poster);
+        holder.txtTrending_subTitle.setText("Date: " + trendingModelArrayList.get(position).getRelease_date() + " Rate: " + String.valueOf(trendingModelArrayList.get(position).getVote_average()));
         holder.vv.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Intent movieIntent = new Intent(context, MovieActivity.class);
                 movieIntent.putExtra("poster", trendingModelArrayList.get(position).getPoster_path());
                 movieIntent.putExtra("title", trendingModelArrayList.get(position).getOriginal_title());
-                movieIntent.putExtra("subtitle", trendingModelArrayList.get(position).getRelease_date() + " " + String.valueOf(trendingModelArrayList.get(position).getVote_average()));
+                movieIntent.putExtra("subtitle", trendingModelArrayList.get(position).getRelease_date());
+                movieIntent.putExtra("rate" , String.valueOf(trendingModelArrayList.get(position).getVote_average()));
                 movieIntent.putExtra("desc", trendingModelArrayList.get(position).getOverview());
                 v.getContext().startActivity(movieIntent);
 

@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
@@ -20,6 +21,8 @@ import com.squareup.picasso.Picasso;
 public class MovieActivity extends AppCompatActivity {
 
 
+    boolean countlike = true;
+    boolean countbookmark = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,25 +43,31 @@ public class MovieActivity extends AppCompatActivity {
         TextView textTitle = findViewById(R.id.txtMovieTitle);
         TextView textSubTitle = findViewById(R.id.txtMovieSubTitle);
         TextView textDesc = findViewById(R.id.txtMovieDescription);
+        ImageView imgLike = findViewById(R.id.img_thumb_likes);
+        TextView txtLike = findViewById(R.id.txt_thumb_likes);
+        ImageView imgSave = findViewById(R.id.imgSaved);
+        TextView txtSaved = findViewById(R.id.txtSaved);
 
         if (getIntent().getExtras().getString("title") != null) {
             String imgPoster = getIntent().getExtras().getString("poster");
 //            imagePoster.setImageResource(imgPoster);
             Picasso.get()
                     .load("https://image.tmdb.org/t/p/w500" + imgPoster)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.progress_animation)
+                    .error(R.drawable.progress_animation)
                     .into(imagePoster);
             textTitle.setText(getIntent().getExtras().getString("title"));
-            textSubTitle.setText(getIntent().getExtras().getString("subtitle"));
+            textSubTitle.setText("Release Date:  " + getIntent().getExtras().getString("subtitle") + "\n\nRate:  " + getIntent().getExtras().getString("rate"));
             textDesc.setText(getIntent().getExtras().getString("desc"));
         } else {
             String imgPoster = getIntent().getExtras().getString("posterV");
             Picasso.get()
                     .load("https://image.tmdb.org/t/p/w500" + imgPoster)
-                    .placeholder(R.drawable.ic_launcher_background)
+                    .placeholder(R.drawable.progress_animation)
+                    .error(R.drawable.progress_animation)
                     .into(imagePoster);
             textTitle.setText(getIntent().getExtras().getString("titleV"));
-            textSubTitle.setText(getIntent().getExtras().getString("subtitleV"));
+            textSubTitle.setText("Release Date:  " +  getIntent().getExtras().getString("subtitleV") + "\n\nRate:  " + getIntent().getExtras().getString("rateV"));
             textDesc.setText(getIntent().getExtras().getString("descV"));
         }
 
@@ -70,6 +79,40 @@ public class MovieActivity extends AppCompatActivity {
 
         LinearLayout llback = findViewById(R.id.llback);
         llback.setOnClickListener(v -> onBackPressed());
+
+        imgLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(countlike) {
+                    imgLike.setImageResource(R.drawable.hand_thumbsup_fill);
+                    txtLike.setText(R.string.liked);
+                    countlike = false;
+                }
+                else {
+                    imgLike.setImageResource(R.drawable.like_thumb);
+                    txtLike.setText(R.string.like);
+                    countlike = true;
+                }
+
+            }
+        });
+
+        imgSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(countbookmark){
+                    imgSave.setImageResource(R.drawable.bookmark_fill);
+                    txtSaved.setText(R.string.saved);
+                    Toast.makeText(MovieActivity.this, "Added to saved", Toast.LENGTH_SHORT).show();
+                    countbookmark = false;
+                }
+                else{
+                    imgSave.setImageResource(R.drawable.bookmark);
+                    txtSaved.setText(R.string.save);
+                    countbookmark = true;
+                }
+            }
+        });
 
     }
 }

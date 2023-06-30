@@ -42,8 +42,10 @@
     <string name="watch_movie">Watch Movie</string>
     <string name="download">Download</string>
     <string name="save">Save</string>
+    <string name="saved">Saved</string>
     <string name="share">Share</string>
     <string name="like">Like</string>
+    <string name="liked">Liked</string>
     <string name="dolby">Dolby</string>
 
 
@@ -60,6 +62,12 @@
 
     <!-- ************************ Splash Activity ************************* -->
     <string name="from">from Parth7D2</string>
+
+    <!-- ************************ Date and Rate ************************* -->
+    <string name="date">Date</string>
+    <string name="rate">Rate</string>
+
+
 
 
 

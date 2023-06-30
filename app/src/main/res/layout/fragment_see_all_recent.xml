@@ -5,7 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SeeAllRecentFragment"
-    android:background="@color/red">
+    android:background="@color/black">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/allrecyclerView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="22dp"
+        android:layout_margin="16dp"/>
 
     <LinearLayout
         android:id="@+id/llback"
@@ -15,7 +22,7 @@
         android:gravity="center_vertical"
         android:layout_marginTop="36dp"
         android:layout_marginStart="13dp"
-        android:background="@drawable/back_bg">
+        android:background="@drawable/back_bg_dark">
 
         <ImageView
             android:id="@+id/imgBack"
@@ -39,19 +46,5 @@
             />
 
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/recently_heading"
-        android:textSize="36sp"
-        android:fontFamily="@font/sfpro_display_bold"
-        android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="@color/white"
-        android:layout_gravity="center"/>
 
 </FrameLayout>

@@ -13,8 +13,8 @@
         android:background="#ff000000"
         app:controller_layout_id="@layout/custom_controller"
         app:hide_on_touch="true"
-        app:resize_mode="fit"
-        app:show_timeout="4000"
+        app:resize_mode="fixed_width"
+        app:show_timeout="2000"
         app:surface_type="surface_view"
         app:use_controller="true" />
 

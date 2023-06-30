@@ -3,12 +3,18 @@ package com.example.cinehub;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +22,12 @@ import android.widget.LinearLayout;
  * create an instance of this fragment.
  */
 public class SeeAllTreandingFragment extends Fragment {
+
+    ArrayList<MovieModel> arrayList;
+    RecyclerView recyclerView;
+
+    VerticalAdapter allTrending;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +40,10 @@ public class SeeAllTreandingFragment extends Fragment {
 
     public SeeAllTreandingFragment() {
         // Required empty public constructor
+    }
+
+    public SeeAllTreandingFragment(ArrayList<MovieModel> arrayList) {
+        this.arrayList = arrayList;
     }
 
     /**
@@ -65,6 +81,17 @@ public class SeeAllTreandingFragment extends Fragment {
 
         LinearLayout llback = view.findViewById(R.id.llback);
         llback.setOnClickListener(v -> getActivity().onBackPressed());
+
+        recyclerView = view.findViewById(R.id.allrecyclerView1);
+
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+
+        allTrending = new VerticalAdapter(getContext(), arrayList);
+        recyclerView.setAdapter(allTrending);
+
+
         
         return view;
     }

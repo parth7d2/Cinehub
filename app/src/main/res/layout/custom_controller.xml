@@ -7,6 +7,35 @@
     android:background="#99000000"
     android:gravity="center_vertical">
 
+    <LinearLayout
+        android:id="@+id/llbackplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="36dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgBackplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:contentDescription="@string/company_logo"
+            android:src="@drawable/chevron_backward__5_" />
+
+        <TextView
+            android:id="@+id/txtBackplayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="7dp"
+            android:text="@string/back"
+            android:textAppearance="@style/sfpro_display_regular_fonts"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/exo_lock"
         android:layout_width="wrap_content"
