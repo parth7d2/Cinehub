@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "919456542728",
+    "project_id": "cinehub-132ce",
+    "storage_bucket": "cinehub-132ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:919456542728:android:56ee2413b80166c6df61bd",
+        "android_client_info": {
+          "package_name": "com.example.cinehub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919456542728-dpo06lu9vtb96rk7ddrp1m84hnc3v6d7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cinehub",
+            "certificate_hash": "0693f7688d45a31627f2221dfb0dfee4aae7a0d3"
+          }
+        },
+        {
+          "client_id": "919456542728-ea9bmkak4b8prlb8du9r2j7rmdjjsgfe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAAEWxwI9aCtzrACMgH0jLeOBzs-cZDDHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919456542728-ea9bmkak4b8prlb8du9r2j7rmdjjsgfe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

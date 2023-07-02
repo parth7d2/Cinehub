@@ -25,10 +25,9 @@ public class MovieActivity extends AppCompatActivity {
     boolean countbookmark = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
-
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
 
@@ -70,6 +69,9 @@ public class MovieActivity extends AppCompatActivity {
             textSubTitle.setText("Release Date:  " +  getIntent().getExtras().getString("subtitleV") + "\n\nRate:  " + getIntent().getExtras().getString("rateV"));
             textDesc.setText(getIntent().getExtras().getString("descV"));
         }
+
+
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         Intent intent = new Intent(MovieActivity.this, PlayerAcivity.class);
 
